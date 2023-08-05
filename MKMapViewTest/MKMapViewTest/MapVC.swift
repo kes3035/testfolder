@@ -11,11 +11,31 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController {
+protocol MapDelegate: AnyObject {
+    func cordHandler(with: Location)}
+
+
+class MapVC: UIViewController, MapDelegate {
+    func cordHandler(with: Location){
+        self.location = with
+        
+    }
+    
+    
+    
+   
+    
 
     private lazy var mkMapView = MKMapView(frame: self.view.frame)
     private var locationManager = CLLocationManager()   // location Manager
     private var currentLocation: CLLocation = CLLocation(latitude: 37.332651635682176, longitude:  127.11873405786073)
+    
+    var location: Location? {
+        didSet {
+            guard let location = location else { return }
+            self.mkMapView.setCenter(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), animated: true)
+        }
+    }
     
     private lazy var currentLocationButton: UIButton = {
        let button = UIButton()
@@ -54,15 +74,15 @@ class ViewController: UIViewController {
         view.addSubview(searchButton)
         
         NSLayoutConstraint.activate([
-            currentLocationButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            currentLocationButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),
             currentLocationButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            currentLocationButton.widthAnchor.constraint(equalToConstant: 30),
-            currentLocationButton.heightAnchor.constraint(equalToConstant: 30),
+            currentLocationButton.widthAnchor.constraint(equalToConstant: 50),
+            currentLocationButton.heightAnchor.constraint(equalToConstant: 50),
             
-            searchButton.topAnchor.constraint(equalTo: currentLocationButton.bottomAnchor, constant: 10),
+            searchButton.topAnchor.constraint(equalTo: currentLocationButton.bottomAnchor, constant: 0),
             searchButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            searchButton.widthAnchor.constraint(equalToConstant: 30),
-            searchButton.heightAnchor.constraint(equalToConstant: 30),
+            searchButton.widthAnchor.constraint(equalToConstant: 50),
+            searchButton.heightAnchor.constraint(equalToConstant: 50),
         
         ])
     }
@@ -104,17 +124,19 @@ class ViewController: UIViewController {
     @objc func searchButtonTapped() {
         print("디버깅: 검색 버튼 눌림")
         let searchVC = SearchVC()
+        searchVC.mapDelegate = self
+//        present(searchVC, animated: true)
         navigationController?.pushViewController(searchVC, animated: true)
         
         
     }
 }
 
-extension ViewController: MKMapViewDelegate {
+extension MapVC: MKMapViewDelegate {
     
 }
 
-extension ViewController: CLLocationManagerDelegate {
+extension MapVC: CLLocationManagerDelegate {
     
     
 }

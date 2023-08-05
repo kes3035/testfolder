@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let vc1 = ViewController()
+        let vc1 = MapVC()
         let nav1 = UINavigationController(rootViewController: vc1)
         nav1.setupBarAppearance()
         window.rootViewController = nav1

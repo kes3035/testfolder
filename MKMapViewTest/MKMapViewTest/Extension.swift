@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 extension UINavigationController {
     
@@ -24,6 +25,26 @@ extension UINavigationController {
         
     }
     
+    func popViewControllerWithHandler(animated:Bool = true, completion: @escaping ()->()) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        self.popViewController(animated: animated)
+        CATransaction.commit()
+    }
+
+    func pushViewController(viewController: UIViewController, animated:Bool = true,  completion: @escaping ()->()) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        self.pushViewController(viewController, animated: animated)
+        CATransaction.commit()
+    }
+    
     
 }
+
+struct Location {
+    var latitude: CLLocationDegrees
+    var longitude: CLLocationDegrees
+}
+
 
