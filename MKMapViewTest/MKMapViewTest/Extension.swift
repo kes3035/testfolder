@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 extension UINavigationController {
     
@@ -47,4 +48,25 @@ struct Location {
     var longitude: CLLocationDegrees
 }
 
+struct Constant {
+    static let color = UIColor(red: 0.12, green: 0.27, blue: 0.56, alpha: 1.00)
+}
 
+class Marker: NSObject, MKAnnotation {
+  let title: String?
+  let coordinate: CLLocationCoordinate2D
+  let subtitle:String?
+
+  init(
+    title: String?,
+    subtitle: String?,
+    coordinate: CLLocationCoordinate2D
+  ) {
+    self.title = title
+    self.subtitle = subtitle
+    self.coordinate = coordinate
+
+    super.init()
+  }
+
+}

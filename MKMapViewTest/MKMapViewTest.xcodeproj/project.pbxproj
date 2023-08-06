@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21A82C622A7E6110005A7A40 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A82C612A7E6110005A7A40 /* SearchCell.swift */; };
+		21A82C652A7F63F5005A7A40 /* ModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A82C642A7F63F5005A7A40 /* ModalVC.swift */; };
 		21BE5B082A7BCF0600395D86 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE5B072A7BCF0600395D86 /* SearchVC.swift */; };
 		21BE5B0A2A7BD3CF00395D86 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE5B092A7BD3CF00395D86 /* Extension.swift */; };
 		21D7EF502A7A6F0100001DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7EF4F2A7A6F0100001DEE /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		21A82C612A7E6110005A7A40 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		21A82C642A7F63F5005A7A40 /* ModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalVC.swift; sourceTree = "<group>"; };
 		21BE5B072A7BCF0600395D86 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		21BE5B092A7BD3CF00395D86 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		21D7EF4C2A7A6F0100001DEE /* MKMapViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MKMapViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21A82C632A7F62E8005A7A40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21D7EF532A7A6F0100001DEE /* MapVC.swift */,
+				21BE5B072A7BCF0600395D86 /* SearchVC.swift */,
+				21A82C612A7E6110005A7A40 /* SearchCell.swift */,
+				21A82C642A7F63F5005A7A40 /* ModalVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		21D7EF432A7A6F0100001DEE = {
 			isa = PBXGroup;
 			children = (
@@ -62,11 +75,9 @@
 		21D7EF4E2A7A6F0100001DEE /* MKMapViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				21A82C632A7F62E8005A7A40 /* View */,
 				21D7EF4F2A7A6F0100001DEE /* AppDelegate.swift */,
 				21D7EF512A7A6F0100001DEE /* SceneDelegate.swift */,
-				21D7EF532A7A6F0100001DEE /* MapVC.swift */,
-				21BE5B072A7BCF0600395D86 /* SearchVC.swift */,
-				21A82C612A7E6110005A7A40 /* SearchCell.swift */,
 				21BE5B092A7BD3CF00395D86 /* Extension.swift */,
 				21D7EF552A7A6F0100001DEE /* Main.storyboard */,
 				21D7EF582A7A6F0200001DEE /* Assets.xcassets */,
@@ -148,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BE5B0A2A7BD3CF00395D86 /* Extension.swift in Sources */,
+				21A82C652A7F63F5005A7A40 /* ModalVC.swift in Sources */,
 				21A82C622A7E6110005A7A40 /* SearchCell.swift in Sources */,
 				21BE5B082A7BCF0600395D86 /* SearchVC.swift in Sources */,
 				21D7EF542A7A6F0100001DEE /* MapVC.swift in Sources */,

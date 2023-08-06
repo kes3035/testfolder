@@ -8,23 +8,16 @@ import CoreLocation
 import UIKit
 
 class SearchVC: UIViewController {
-    
-    
+    //MARK: - Properties
 
     weak var mapDelegate: MapDelegate?
-    
-//    private let searchBar: UISearchBar = {
-//        let searchBar = UISearchBar()
-//        searchBar.translatesAutoresizingMaskIntoConstraints = false
-//        return searchBar
-//    }()
-//
+
     let searchBar = UISearchBar()
     
     lazy var tableView = UITableView(frame: self.view.frame)
 
     
-    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +29,8 @@ class SearchVC: UIViewController {
         
     }
     
+    //MARK: - Helpers
+
     func configureUI() {
         view.addSubview(tableView)
     }
@@ -57,12 +52,11 @@ class SearchVC: UIViewController {
 
 }
 
+//MARK: - Extensions
 
 extension SearchVC: UISearchBarDelegate {
     
 }
-
-//MARK: - 위도는37.482040282097046, 경도는 127.06796189321376 입니다
 
 extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
