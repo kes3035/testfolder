@@ -130,15 +130,20 @@ final class MapVC: UIViewController {
 //MARK: - Extension
 
 extension MapVC: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            print("디버깅: AnnotationView")
+        let modalVC = ModalVC()
+        modalVC.modalPresentationStyle = .pageSheet
+        present(modalVC, animated: true)
+        
+    }
     
 }
 
+
+
 extension MapVC: CLLocationManagerDelegate {
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if view == MKAnnotationView(annotation: self.mark, reuseIdentifier: "mark") {
-            print("디버깅: AnnotationView")
-        }
-    }
+    
     
 }
 extension MapVC: MapDelegate {

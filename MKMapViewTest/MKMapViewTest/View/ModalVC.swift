@@ -64,11 +64,13 @@ class ModalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        settingModal()
     }
     
     
     //MARK: - Helpers
     func configureUI() {
+        view.backgroundColor = .white
         view.addSubview(신대방)
         view.addSubview(천육십)
         view.addSubview(월세)
@@ -78,7 +80,7 @@ class ModalVC: UIViewController {
             신대방.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 30),
             신대방.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
             신대방.heightAnchor.constraint(equalToConstant: 30),
-            신대방.widthAnchor.constraint(equalToConstant: 100),
+            신대방.widthAnchor.constraint(equalToConstant: 200),
             
             천육십.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 30),
             천육십.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
@@ -88,15 +90,25 @@ class ModalVC: UIViewController {
             월세.topAnchor.constraint(equalTo: 천육십.bottomAnchor, constant: 10),
             월세.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
             월세.heightAnchor.constraint(equalToConstant: 30),
-            월세.widthAnchor.constraint(equalToConstant: 100),
+            월세.widthAnchor.constraint(equalToConstant: 50),
             
-            원룸.topAnchor.constraint(equalTo: 천육십.bottomAnchor, constant: 30),
-            원룸.trailingAnchor.constraint(equalTo: 월세.leadingAnchor, constant: 10),
+            원룸.topAnchor.constraint(equalTo: 천육십.bottomAnchor, constant: 10),
+            원룸.trailingAnchor.constraint(equalTo: 월세.leadingAnchor, constant: -10),
             원룸.heightAnchor.constraint(equalToConstant: 30),
-            원룸.widthAnchor.constraint(equalToConstant: 100),
+            원룸.widthAnchor.constraint(equalToConstant: 50),
             
             
         ])
+    
+        
+    }
+    
+    func settingModal() {
+        if let sheetPresentationController = sheetPresentationController {
+            sheetPresentationController.detents = [.medium()]
+            sheetPresentationController.prefersGrabberVisible = true
+            sheetPresentationController.preferredCornerRadius = 25
+        }
         
         
     }
